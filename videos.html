@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos & Clips | q4yn</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0a1b; /* Dark purple/blue */
+            color: #e0e0e0; /* Light gray for text */
+            overflow-x: hidden;
+        }
+
+        /* Subtle background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, #4a2879, #1b1626, #0d0a1b);
+            background-size: 200% 200%;
+            animation: backgroundGradient 20s ease infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section-header {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Aspect ratio container for responsive video embeds */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 0.75rem; /* rounded-xl */
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Responsive Navbar */
+        .navbar-links.hidden {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .navbar-links.hidden {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-70 backdrop-blur-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-white tracking-widest">q4yn</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Links (Links to separate files) -->
+            <ul id="navbar-links" class="navbar-links hidden md:flex items-center space-x-8 text-lg font-medium">
+                <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
+                <li><a href="music.html" class="text-gray-300 hover:text-white transition-colors duration-200">Music</a></li>
+                <li><a href="merch.html" class="text-gray-300 hover:text-white transition-colors duration-200">Merch</a></li>
+                <li><a href="tour.html" class="text-gray-300 hover:text-white transition-colors duration-200">Tour</a></li>
+                <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors duration-200">About</a></li>
+                <li><a href="videos.html" class="text-fuchsia-400 font-bold transition-colors duration-200">Videos</a></li>
+                <li><a href="connect.html" class="text-gray-300 hover:text-white transition-colors duration-200">Connect</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-black bg-opacity-90 backdrop-blur-md transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+            <ul class="flex flex-col items-center py-4 space-y-4 text-lg font-medium">
+                <li><a href="index.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Home</a></li>
+                <li><a href="music.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Music</a></li>
+                <li><a href="merch.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Merch</a></li>
+                <li><a href="tour.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Tour</a></li>
+                <li><a href="about.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">About</a></li>
+                <li><a href="videos.html" class="block w-full text-center py-2 text-fuchsia-400 font-bold">Videos</a></li>
+                <li><a href="connect.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Connect</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Videos Section (Full Page Content) -->
+        <section id="videos-full" class="py-20 px-6 container mx-auto min-h-screen max-w-6xl">
+            <h1 class="section-header">Visuals & Music Videos</h1>
+            <p class="text-center text-xl max-w-4xl mx-auto mb-16 text-gray-300">
+                Experience the cinematic side of q4yn's music. Watch the official music videos and live performance clips here.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- Featured Video (Music Video 1) -->
+                <div class="bg-gray-900 rounded-xl p-6 shadow-2xl">
+                    <h2 class="text-3xl font-bold text-white mb-4">Official Video: NEBULA</h2>
+                    <p class="text-gray-400 mb-4">The lead single from the 'Starlight EP'. A stunning visual journey through a digital cosmos.</p>
+                    <div class="video-container">
+                        <!-- Placeholder for YouTube Embed: Replace the src with the actual video URL -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Featured Video (Live Performance) -->
+                <div class="bg-gray-900 rounded-xl p-6 shadow-2xl">
+                    <h2 class="text-3xl font-bold text-white mb-4">Live Performance: THE JOURNEY</h2>
+                    <p class="text-gray-400 mb-4">A powerful live clip from the sold-out Chicago show. Hear the raw energy of the track.</p>
+                    <div class="video-container">
+                        <!-- Placeholder for YouTube Embed: Replace the src with the actual video URL -->
+                        <iframe src="https://www.youtube.com/embed/m63E4D1tO4w?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <!-- Simple Video List/Gallery -->
+                <div class="lg:col-span-2 mt-10">
+                    <h3 class="text-3xl font-bold text-white mb-6 border-b border-fuchsia-600 pb-2">More Visuals</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <div class="bg-gray-800 rounded-lg shadow-lg p-4 transition-transform duration-300 hover:scale-[1.03]">
+                            <img src="https://placehold.co/300x168/1b1626/a5b4fc?text=Lyric+Video" alt="Lyric Video" class="w-full rounded-md mb-3 aspect-video object-cover">
+                            <p class="text-lg font-semibold text-white">Digital Heartbeat (Lyric Video)</p>
+                            <a href="https://www.youtube.com/user/example" target="_blank" class="text-fuchsia-400 text-sm hover:underline">Watch on YouTube →</a>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg shadow-lg p-4 transition-transform duration-300 hover:scale-[1.03]">
+                            <img src="https://placehold.co/300x168/1b1626/a5b4fc?text=Behind+The+Scenes" alt="Behind The Scenes" class="w-full rounded-md mb-3 aspect-video object-cover">
+                            <p class="text-lg font-semibold text-white">Behind the Scenes: EP Recording</p>
+                            <a href="https://www.youtube.com/user/example" target="_blank" class="text-fuchsia-400 text-sm hover:underline">Watch on YouTube →</a>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg shadow-lg p-4 transition-transform duration-300 hover:scale-[1.03]">
+                            <img src="https://placehold.co/300x168/1b1626/a5b4fc?text=Old+Clip" alt="Old Clip" class="w-full rounded-md mb-3 aspect-video object-cover">
+                            <p class="text-lg font-semibold text-white">Cosmic Waves: Original Mix</p>
+                            <a href="https://www.youtube.com/user/example" target="_blank" class="text-fuchsia-400 text-sm hover:underline">Watch on YouTube →</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-70 backdrop-blur-md py-8 mt-12">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-instagram text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-spotify text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-youtube text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-tiktok text-3xl"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 q4yn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle mobile menu visibility
+            mobileMenuBtn.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('max-h-0')) {
+                    mobileMenu.classList.remove('max-h-0');
+                    mobileMenu.classList.add('max-h-screen');
+                } else {
+                    mobileMenu.classList.remove('max-h-screen');
+                    mobileMenu.classList.add('max-h-0');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
