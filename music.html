@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music & Discography | q4yn</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0a1b; /* Dark purple/blue */
+            color: #e0e0e0; /* Light gray for text */
+            overflow-x: hidden;
+        }
+
+        /* Subtle background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, #4a2879, #1b1626, #0d0a1b);
+            background-size: 200% 200%;
+            animation: backgroundGradient 20s ease infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section-header {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .animated-button {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .animated-button:hover {
+            transform: translateY(-2px);
+            background-color: #fca5a5;
+        }
+
+        /* Responsive Navbar */
+        .navbar-links.hidden {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .navbar-links.hidden {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header & Navigation (Links point to the appropriate file names) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-70 backdrop-blur-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-white tracking-widest">q4yn</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Links (Now linking to separate files) -->
+            <ul id="navbar-links" class="navbar-links hidden md:flex items-center space-x-8 text-lg font-medium">
+                <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
+                <li><a href="music.html" class="text-fuchsia-400 font-bold transition-colors duration-200">Music</a></li>
+                <li><a href="merch.html" class="text-gray-300 hover:text-white transition-colors duration-200">Merch</a></li>
+                <li><a href="tour.html" class="text-gray-300 hover:text-white transition-colors duration-200">Tour</a></li>
+                <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors duration-200">About</a></li>
+                <li><a href="videos.html" class="text-gray-300 hover:text-white transition-colors duration-200">Videos</a></li>
+                <li><a href="connect.html" class="text-gray-300 hover:text-white transition-colors duration-200">Connect</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-black bg-opacity-90 backdrop-blur-md transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+            <ul class="flex flex-col items-center py-4 space-y-4 text-lg font-medium">
+                <li><a href="index.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Home</a></li>
+                <li><a href="music.html" class="block w-full text-center py-2 text-fuchsia-400 font-bold">Music</a></li>
+                <li><a href="merch.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Merch</a></li>
+                <li><a href="tour.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Tour</a></li>
+                <li><a href="about.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">About</a></li>
+                <li><a href="videos.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Videos</a></li>
+                <li><a href="connect.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Connect</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Music Section (Full Page Content) -->
+        <section id="music-full" class="py-20 px-6 container mx-auto min-h-screen">
+            <h1 class="section-header">Music & Discography</h1>
+            <p class="text-center text-xl max-w-4xl mx-auto mb-16 text-gray-300">
+                Dive deep into the sound of q4yn. Stream the latest singles, explore full albums, and support the artist on all major platforms.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Music Card 1 (Featured EP) -->
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center card">
+                    <img src="https://placehold.co/400x400/1e293b/a5b4fc?text=Starlight+EP" alt="Starlight EP Album Art" class="w-full rounded-md mb-4 shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Starlight EP (Featured)</h3>
+                    <p class="text-gray-400 mb-4">Released 2024 | 5 Tracks | Genre: Cosmic Electronica</p>
+                    <p class="text-sm text-gray-500 mb-4 text-center">A dynamic blend of ambient textures and heavy electronic beats. This EP marks a new chapter for q4yn, showcasing complex layering and powerful bass lines. Includes the hit track "Nebula."</p>
+                    <a href="https://open.spotify.com/artist/example" target="_blank" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-6 rounded-full animated-button text-center">Stream Now</a>
+                </div>
+                <!-- Music Card 2 -->
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center card">
+                    <img src="https://placehold.co/400x400/1e293b/a5b4fc?text=Cosmic+Waves" alt="Cosmic Waves Album Art" class="w-full rounded-md mb-4 shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Cosmic Waves</h3>
+                    <p class="text-gray-400 mb-4">Single | 2023 | Genre: Ambient Pop</p>
+                    <p class="text-sm text-gray-500 mb-4 text-center">The song that defined the sound of q4yn's early career. A perfect blend of melodic vocals and shimmering synth pads. Listen on repeat!</p>
+                    <a href="https://open.spotify.com/artist/example" target="_blank" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-6 rounded-full animated-button text-center">Stream Now</a>
+                </div>
+                <!-- Music Card 3 -->
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center card">
+                    <img src="https://placehold.co/400x400/1e293b/a5b4fc?text=The+Journey" alt="The Journey Album Art" class="w-full rounded-md mb-4 shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-2">The Journey</h3>
+                    <p class="text-gray-400 mb-4">Album | 2022 | 10 Tracks</p>
+                    <p class="text-sm text-gray-500 mb-4 text-center">q4yn's debut full-length album, telling a sonic story from start to finish. Essential listening for new fans to understand the roots of the music.</p>
+                    <a href="https://open.spotify.com/artist/example" target="_blank" class="w-full bg-gray-700 hover:bg-gray-600 text-white font-medium py-2 px-6 rounded-full animated-button text-center">Stream Now</a>
+                </div>
+                <!-- Music Card 4 (New Placeholder) -->
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 flex flex-col items-center card">
+                    <img src="https://placehold.co/400x400/1e293b/a5b4fc?text=Future+Single" alt="Future Single Album Art" class="w-full rounded-md mb-4 shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Next Track: Coming Soon</h3>
+                    <p class="text-gray-400 mb-4">Single | 2025</p>
+                    <p class="text-sm text-gray-500 mb-4 text-center">Check back soon for the next release, or join the mailing list to get an exclusive preview!</p>
+                    <a href="connect.html" class="w-full bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-medium py-2 px-6 rounded-full animated-button text-center">Connect Now</a>
+                </div>
+            </div>
+
+            <!-- Spotify Embed (Full Width for focus) -->
+            <div class="mt-20 text-center max-w-5xl mx-auto">
+                <h3 class="text-3xl font-bold mb-6 text-white border-b border-fuchsia-600 pb-2">Full Spotify Discography</h3>
+                <div class="flex justify-center">
+                    <!-- This iframe should ideally link to the artist's full profile playlist -->
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/5b478i6Dk2Q9538Y6x2dE0?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-70 backdrop-blur-md py-8 mt-12">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-instagram text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-spotify text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-youtube text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-tiktok text-3xl"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 q4yn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle mobile menu visibility
+            mobileMenuBtn.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('max-h-0')) {
+                    mobileMenu.classList.remove('max-h-0');
+                    mobileMenu.classList.add('max-h-screen');
+                } else {
+                    mobileMenu.classList.remove('max-h-screen');
+                    mobileMenu.classList.add('max-h-0');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
