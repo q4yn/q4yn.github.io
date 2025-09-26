@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Dates | q4yn</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0a1b; /* Dark purple/blue */
+            color: #e0e0e0; /* Light gray for text */
+            overflow-x: hidden;
+        }
+
+        /* Subtle background animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, #4a2879, #1b1626, #0d0a1b);
+            background-size: 200% 200%;
+            animation: backgroundGradient 20s ease infinite;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .section-header {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Styling for each tour date row */
+        .tour-date-row {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .tour-date-row:hover {
+            background-color: #1e1b36; /* Slightly lighter dark background on hover */
+            transform: scale(1.01);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .animated-button {
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .animated-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Responsive Navbar */
+        .navbar-links.hidden {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .navbar-links.hidden {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-70 backdrop-blur-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold text-white tracking-widest">q4yn</a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Desktop Links (Links to separate files) -->
+            <ul id="navbar-links" class="navbar-links hidden md:flex items-center space-x-8 text-lg font-medium">
+                <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a></li>
+                <li><a href="music.html" class="text-gray-300 hover:text-white transition-colors duration-200">Music</a></li>
+                <li><a href="merch.html" class="text-gray-300 hover:text-white transition-colors duration-200">Merch</a></li>
+                <li><a href="tour.html" class="text-fuchsia-400 font-bold transition-colors duration-200">Tour</a></li>
+                <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors duration-200">About</a></li>
+                <li><a href="videos.html" class="text-gray-300 hover:text-white transition-colors duration-200">Videos</a></li>
+                <li><a href="connect.html" class="text-gray-300 hover:text-white transition-colors duration-200">Connect</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-black bg-opacity-90 backdrop-blur-md transition-all duration-300 ease-in-out max-h-0 overflow-hidden">
+            <ul class="flex flex-col items-center py-4 space-y-4 text-lg font-medium">
+                <li><a href="index.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Home</a></li>
+                <li><a href="music.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Music</a></li>
+                <li><a href="merch.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Merch</a></li>
+                <li><a href="tour.html" class="block w-full text-center py-2 text-fuchsia-400 font-bold">Tour</a></li>
+                <li><a href="about.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">About</a></li>
+                <li><a href="videos.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Videos</a></li>
+                <li><a href="connect.html" class="block w-full text-center py-2 text-gray-300 hover:text-white">Connect</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Tour Section (Full Page Content) -->
+        <section id="tour-full" class="py-20 px-6 container mx-auto min-h-screen max-w-4xl">
+            <h1 class="section-header">Upcoming Live Dates</h1>
+            <p class="text-center text-xl max-w-3xl mx-auto mb-16 text-gray-300">
+                Join q4yn on the "Cosmic Journey" tour! Tickets are moving fast. All show times are local.
+            </p>
+
+            <!-- Tour Date List Container -->
+            <div class="space-y-4">
+
+                <!-- Date Row 1: New York -->
+                <div class="tour-date-row bg-gray-800 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between shadow-lg">
+                    <div class="flex-grow mb-3 sm:mb-0">
+                        <p class="text-sm font-semibold text-fuchsia-400 uppercase tracking-widest mb-1">Oct 21, 2025</p>
+                        <p class="text-2xl font-bold text-white">New York, NY</p>
+                        <p class="text-gray-400 text-lg">The Nebula Club</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full sm:w-auto bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-medium py-2 px-6 rounded-full animated-button text-center">
+                        <i class="fas fa-ticket-alt mr-2"></i> Get Tickets
+                    </a>
+                </div>
+
+                <!-- Date Row 2: Chicago -->
+                <div class="tour-date-row bg-gray-800 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between shadow-lg">
+                    <div class="flex-grow mb-3 sm:mb-0">
+                        <p class="text-sm font-semibold text-fuchsia-400 uppercase tracking-widest mb-1">Oct 25, 2025</p>
+                        <p class="text-2xl font-bold text-white">Chicago, IL</p>
+                        <p class="text-gray-400 text-lg">The Meteor Ballroom</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full sm:w-auto bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-medium py-2 px-6 rounded-full animated-button text-center">
+                        <i class="fas fa-ticket-alt mr-2"></i> Get Tickets
+                    </a>
+                </div>
+
+                <!-- Date Row 3: Los Angeles (Sold Out Example) -->
+                <div class="tour-date-row bg-gray-900 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between shadow-lg opacity-60">
+                    <div class="flex-grow mb-3 sm:mb-0">
+                        <p class="text-sm font-semibold text-red-400 uppercase tracking-widest mb-1">Nov 01, 2025</p>
+                        <p class="text-2xl font-bold text-white">Los Angeles, CA</p>
+                        <p class="text-gray-500 text-lg">Star Gate Arena</p>
+                    </div>
+                    <button disabled class="w-full sm:w-auto bg-red-700 text-white font-medium py-2 px-6 rounded-full text-center cursor-not-allowed">
+                        <i class="fas fa-times-circle mr-2"></i> Sold Out
+                    </button>
+                </div>
+
+                <!-- Date Row 4: London -->
+                <div class="tour-date-row bg-gray-800 rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between shadow-lg">
+                    <div class="flex-grow mb-3 sm:mb-0">
+                        <p class="text-sm font-semibold text-fuchsia-400 uppercase tracking-widest mb-1">Nov 15, 2025</p>
+                        <p class="text-2xl font-bold text-white">London, UK</p>
+                        <p class="text-gray-400 text-lg">The Orbital Theatre</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full sm:w-auto bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-medium py-2 px-6 rounded-full animated-button text-center">
+                        <i class="fas fa-ticket-alt mr-2"></i> Get Tickets
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Important Notes/Call to Action -->
+            <div class="text-center mt-20 p-6 bg-gray-900/50 rounded-xl shadow-xl">
+                <h3 class="text-3xl font-bold text-white mb-4">Can't Find Your City?</h3>
+                <p class="text-gray-400 mb-4">
+                    More dates for the spring leg of the tour will be announced soon! Follow us on social media or join the mailing list for pre-sale codes.
+                </p>
+                <a href="connect.html" class="text-fuchsia-400 hover:text-fuchsia-300 font-semibold transition-colors">Sign up for Tour Alerts →</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-70 backdrop-blur-md py-8 mt-12">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-instagram text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-spotify text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-youtube text-3xl"></i></a>
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-200"><i class="fab fa-tiktok text-3xl"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2025 q4yn. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // Toggle mobile menu visibility
+            mobileMenuBtn.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('max-h-0')) {
+                    mobileMenu.classList.remove('max-h-0');
+                    mobileMenu.classList.add('max-h-screen');
+                } else {
+                    mobileMenu.classList.remove('max-h-screen');
+                    mobileMenu.classList.add('max-h-0');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
